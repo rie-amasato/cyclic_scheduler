@@ -1,9 +1,9 @@
 import schedule
+import requests
 
 import time
 import datetime
 import os
-import requests
 
 def DCsend(message,name):
 	print(name,": " , os.environ[name])
