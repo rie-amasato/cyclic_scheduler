@@ -42,6 +42,6 @@ def thread():
 def test_threading():
 	t1=threading.Thread(target=thread)
 	t1.start()
-	time.sleep(25)
+	time.sleep(300)
 	DCsend("スレッド外", "WHURL")
 	return "test_threading"
