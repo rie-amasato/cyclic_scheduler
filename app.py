@@ -13,6 +13,7 @@ import os
 app=Flask(__name__)
 
 def th_keepliving(sec):
+	print("th_keepliving", sec)	
 	for i in range(int(sec/10)+1):
 		print("th_keepliving", i)
 		print((os.getenv("CYCLIC_URL")+"/keepliving"))
