@@ -33,7 +33,7 @@ def index():
 def thread():
 	minute_wait=1
 	DCsend(str(minute_wait)+"分スレッドの開始", "WHURL")
-	for t in range (minute_wait*12)
+	for t in range (minute_wait*12):
 		time.sleep(10)
 		DCsend(str(t)+" Threading...", "WHURL")
 	DCsend(str(minute_wait)+"スレッド完了", "WHURL")
