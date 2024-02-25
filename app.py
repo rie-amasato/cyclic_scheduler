@@ -9,6 +9,9 @@ import time
 import datetime
 import os
 
+
+app=Flask(__name__)
+
 def th_keepliving(sec):
 	for i in range(int(sec/10)+1):
 		print("th_keepliving", i)
@@ -38,7 +41,6 @@ def job():
 
 schedule.every().minute.at(":00").do(job)
 
-app=Flask(__name__)
 @app.route("/")
 def index():
   print("JOB", datetime.datetime.now())
