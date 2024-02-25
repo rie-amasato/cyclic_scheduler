@@ -12,7 +12,7 @@ import os
 
 app=Flask(__name__)
 
-def th_keepliving(sec):
+def thkeepliving(sec=300):
 	print("th_keepliving", sec)	
 	for i in range(int(sec/10)+1):
 		print("th_keepliving", i)
@@ -23,7 +23,7 @@ def th_keepliving(sec):
 
 def keepliving(sec=300):
 	print("fn_keepliving")
-	t1=threading.Thread(target=th_keepliving, args=(sec))
+	t1=threading.Thread(target=thkeepliving, args=(sec,))
 
 @app.route("/keepliving")
 def endpoint_keepliving():
