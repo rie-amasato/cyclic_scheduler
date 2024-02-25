@@ -9,6 +9,22 @@ import time
 import datetime
 import os
 
+def th_keepliving(sec):
+	for i in range(int(sec/10)+1):
+		print("th_keepliving", i)
+		requests.get(os.getenv("CYCLIC_URL")+"/keeping")
+		time.sleep(10)
+
+def keepliving(sec=300):
+	t1=threading.Thread(target=th_keepliving, args=(sec))
+
+@app.route("/keepliving")
+def endpoint_keepliving():
+	print("keeplivingendpoint")
+	time.sleep(11)
+	return "keepliving"
+
+
 def DCsend(message,name):
 	print(name,": " , os.environ[name])
 	discordWH=os.environ[name]
@@ -40,6 +56,7 @@ def thread():
 
 @app.route("/test_threading")
 def test_threading():
+	print("test_keepliving")
 	keepliving(500)
 	# t1=threading.Thread(target=thread)
 	# t1.start()
@@ -54,17 +71,3 @@ def test_threading():
 	DCsend(str(minute_wait)+"スレッド完了", "WHURL")
 
 	return "test_threading"
-
-
-def th_keepliving(sec):
-	for i in range(int(sec/10)+1):
-		requests.get(os.getenv("CYCLIC_URL")+"/keeping")
-		time.sleep(10)
-
-def keepliving(sec=300):
-	t1=threading.Thread(target=th_keepliving, args=(sec))
-
-@app.route("/keepliving")
-def endpoint_keepliving():
-	time.sleep(11)
-	return "keepliving"
