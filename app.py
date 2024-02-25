@@ -16,7 +16,8 @@ def th_keepliving(sec):
 	for i in range(int(sec/10)+1):
 		print("th_keepliving", i)
 		requests.get(os.getenv("CYCLIC_URL")+"/keeping")
-		time.sleep(10)
+		time.sleep(20)
+		print("next...")
 
 def keepliving(sec=300):
 	t1=threading.Thread(target=th_keepliving, args=(sec))
@@ -24,7 +25,7 @@ def keepliving(sec=300):
 @app.route("/keepliving")
 def endpoint_keepliving():
 	print("keeplivingendpoint")
-	time.sleep(11)
+	time.sleep(25)
 	return "keepliving"
 
 
