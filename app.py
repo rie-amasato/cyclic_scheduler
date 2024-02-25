@@ -31,17 +31,40 @@ def index():
 
 
 def thread():
-	minute_wait=1
+	minute_wait=8
 	DCsend(str(minute_wait)+"スレッドの開始", "WHURL")
-	for t in range (minute_wait*30):
-		time.sleep(1)
+	for t in range (minute_wait*6):
+		time.sleep(10)
 		DCsend(str(t)+" Threading...", "WHURL")
 	DCsend(str(minute_wait)+"スレッド完了", "WHURL")
 
 @app.route("/test_threading")
 def test_threading():
-	t1=threading.Thread(target=thread)
-	t1.start()
-	time.sleep(300)
-	DCsend("スレッド外", "WHURL")
+	keepliving(500)
+	# t1=threading.Thread(target=thread)
+	# t1.start()
+	# time.sleep(480)
+	# DCsend("スレッド外", "WHURL")
+	
+	minute_wait=8
+	DCsend(str(minute_wait)+"スレッドの開始", "WHURL")
+	for t in range (minute_wait*6):
+		time.sleep(10)
+		DCsend(str(t)+" Threading...", "WHURL")
+	DCsend(str(minute_wait)+"スレッド完了", "WHURL")
+
 	return "test_threading"
+
+
+def th_keepliving(sec):
+	for i in range(int(sec/10)+1):
+		requests.get(os.getenv("CYCLIC_URL")+"/keeping")
+		time.sleep(10)
+
+def keepliving(sec=300):
+	t1=threading.Thread(target=th_keepliving, args=(sec))
+
+@app.route("/keepliving")
+def endpoint_keepliving():
+	time.sleep(11)
+	return "keepliving"
