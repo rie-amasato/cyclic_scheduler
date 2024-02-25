@@ -15,7 +15,8 @@ app=Flask(__name__)
 def th_keepliving(sec):
 	for i in range(int(sec/10)+1):
 		print("th_keepliving", i)
-		requests.get(os.getenv("CYCLIC_URL")+"/keeping")
+		print((os.getenv("CYCLIC_URL")+"/keepliving"))
+		print(requests.get(os.getenv("CYCLIC_URL")+"/keepliving"))
 		time.sleep(20)
 		print("next...")
 
