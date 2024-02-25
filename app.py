@@ -32,9 +32,9 @@ def index():
 
 def thread():
 	minute_wait=5
-	DCSend(str(minute_wait)+"分スレッドの開始")
+	DCSend(str(minute_wait)+"分スレッドの開始", "WHURL")
 	time.sleep(minute_wait*60)
-	DCSend(str(minute_wait)+"スレッド完了")
+	DCSend(str(minute_wait)+"スレッド完了", "WHURL")
 
 @app.route("/test_threading")
 def test_threading():
