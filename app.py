@@ -36,7 +36,7 @@ def thread():
 	time.sleep(minute_wait*60)
 	DCSend(str(minute_wait)+"スレッド完了")
 
-@ap.route("/test_threading")
+@app.route("/test_threading")
 def test_threading():
 	t1=threading.Thread(target=thread)
 	t1.start()
