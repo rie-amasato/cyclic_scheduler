@@ -48,8 +48,8 @@ schedule.every().minute.at(":00").do(job)
 @app.route("/")
 def index():
   print("JOB", datetime.datetime.now())
-  DCsend("Job"+str(datetime.datetime.now()), "WHURL")
-  return "Job"+str(datetime.datetime.now())
+  # DCsend("Job"+str(datetime.datetime.now()), "WHURL")
+  # return "Job"+str(datetime.datetime.now())
 
 
 def thread():
