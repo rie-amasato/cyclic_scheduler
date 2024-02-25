@@ -42,4 +42,5 @@ def thread():
 def test_threading():
 	t1=threading.Thread(target=thread)
 	t1.start()
+	time.sleep(25)
 	return "test_threading"
