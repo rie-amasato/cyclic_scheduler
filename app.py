@@ -22,6 +22,7 @@ def th_keepliving(sec):
 		print("next...")
 
 def keepliving(sec=300):
+	print("fn_keepliving")
 	t1=threading.Thread(target=th_keepliving, args=(sec))
 
 @app.route("/keepliving")
