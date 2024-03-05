@@ -79,4 +79,4 @@ def test_threading():
 	return "test_threading"
 
 
-app.run(port="80", host="0.0.0.0")
+app.run(port="5151", host="0.0.0.0")
