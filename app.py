@@ -77,3 +77,6 @@ def test_threading():
 	DCsend(str(minute_wait)+"スレッド完了", "WHURL")
 
 	return "test_threading"
+
+
+app.run(port="80", host="0.0.0.0")
